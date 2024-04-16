@@ -1,0 +1,44 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] numeros = { 5, 2, 7, 1, 9, 3 };
+
+        Console.WriteLine("Array antes da ordenação:");
+        ImprimirArray(numeros);
+
+        BubbleSort(numeros);
+
+        Console.WriteLine("Array depois da ordenação:");
+        ImprimirArray(numeros);
+    }
+
+    static void BubbleSort(int[] arr)
+    {
+        int tamanho = arr.Length;
+        for (int i = 0; i < tamanho - 1; i++)
+        {
+            for (int j = 0; j < tamanho - i - 1; j++)
+            {
+                if (arr[j] > arr[j + 1])
+                {
+                    // Troca os elementos
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    static void ImprimirArray(int[] arr)
+    {
+        foreach (int num in arr)
+        {
+            Console.Write(num + " ");
+        }
+        Console.WriteLine();
+    }
+}
